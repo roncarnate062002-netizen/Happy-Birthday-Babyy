@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe3ef">
+<title>For Penelope, With Love — Ron 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #f7a9c8;
+  --rose: #d85c91;
+  --ink: #62364a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg,#fff0f6,#ffe1ed,#fff7fa);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+button { font: inherit; }
+
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.float-heart {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0;
+  animation: rise linear forwards;
+  color: #e98ab1;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  12% { opacity: .65; }
+  100% { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.hero-card { max-width: 760px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .72rem;
+  font-weight: 600;
+  color: #b85b82;
+}
+
+h1, h2, .script {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(4.4rem,14vw,8.5rem);
+  line-height: .95;
+  color: #cf5b8c;
+  margin: 18px 0;
+  text-shadow: 0 8px 28px #e58bb333;
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 16px auto;
+  color: #87536a;
+  line-height: 1.8;
+}
+
+.date-pill {
+  display: inline-block;
+  margin: 14px 0;
+  padding: 10px 18px;
+  border: 1px solid #efb3cc;
+  border-radius: 999px;
+  background: #ffffffa8;
+  color: #a54f77;
+}
+
+.primary {
+  background: linear-gradient(135deg,#e77ca8,#c85a8d);
+  color: white;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 23px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px #c85a8d38;
+  transition: .3s;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px #c85a8d50;
+}
+
+.heart-big {
+  font-size: 2.5rem;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.14); }
+}
+
+section.content {
+  padding: 75px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.section-kicker {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: #b66a87;
+}
+
+h2 {
+  font-size: clamp(2.8rem,8vw,4.6rem);
+  color: #c85d8c;
+  margin: 8px 0 18px;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  line-height: 1.85;
+  color: #87566b;
+}
+
+.panel {
+  max-width: 680px;
+  margin: 28px auto;
+  padding: clamp(22px,5vw,42px);
+  border: 1px solid #f3c5d7;
+  border-radius: 28px;
+  background: #ffffffb8;
+  box-shadow: 0 18px 55px #b95b8120;
+  backdrop-filter: blur(8px);
+}
+
+.envelope-wrap {
+  display: grid;
+  place-items: center;
+  gap: 18px;
+}
+
+.envelope {
+  width: min(290px,78vw);
+  height: 190px;
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  filter: drop-shadow(0 14px 18px #b45c7d2b);
+  transition: transform .25s;
+}
+
+.envelope:hover {
+  transform: translateY(-5px) rotate(-1deg);
+}
+
+.env-back {
+  position: absolute;
+  inset: 15px 0 0;
+  background: #e98eb3;
+  border-radius: 12px;
+}
+
+.env-front {
+  position: absolute;
+  inset: 55px 0 0;
+  background: #f4b5ce;
+  clip-path: polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
+  border-radius: 0 0 12px 12px;
+}
+
+.env-flap {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 115px;
+  background: #f8c8da;
+  clip-path: polygon(0 0,100% 0,50% 100%);
+  transform-origin: top;
+  transition: transform .6s;
+  z-index: 2;
+}
+
+.seal {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 91px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #c95788;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.envelope.open .env-flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.letter {
+  display: none;
+  text-align: left;
+  line-height: 1.95;
+  color: #71465a;
+}
+
+.letter.show {
+  display: block;
+  animation: fade .65s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter h3 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.8rem;
+  color: #c85d8c;
+  font-weight: 400;
+  text-align: center;
+}
+
+.signature {
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+  color: #c85d8c;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 14px;
+  max-width: 650px;
+  margin: 30px auto;
+}
+
+.photo {
+  min-height: 190px;
+  border: 8px solid white;
+  border-radius: 13px;
+  background: linear-gradient(145deg,#f9c8dc,#fceaf1);
+  box-shadow: 0 10px 25px #9d54731c;
+  overflow: hidden;
+  transform: rotate(-1.5deg);
+  display: grid;
+  place-items: center;
+  color: #a75c7b;
+}
+
+.photo:nth-child(even) { transform: rotate(1.5deg); }
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo span {
+  padding: 18px;
+  font-size: .9rem;
+}
+
+.note {
+  font-size: .82rem;
+  color: #9a6d80;
+}
+
+.final-card { max-width: 650px; }
+
+.final-card p { line-height: 1.9; }
+
+footer {
+  text-align: center;
+  padding: 35px 20px 50px;
+  color: #a76b83;
+  font-size: .85rem;
+}
+
+.music-control {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  border: 1px solid #f0b9d0;
+  border-radius: 999px;
+  background: #fffafc;
+  color: #a84f78;
+  padding: 11px 15px;
+  box-shadow: 0 8px 24px #9d547326;
+  cursor: pointer;
+}
+
+@media(max-width:520px) {
+  .gallery { gap: 10px; }
+  .photo, .photo img { min-height: 145px; }
+  .music-control { right: 10px; bottom: 10px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts-bg" id="heartsBg"></div>
+
+<header class="hero">
+  <div class="hero-card">
+    <div class="heart-big">💗</div>
+    <div class="eyebrow">A little birthday surprise from Ron</div>
+
+    <h1>Happy Birthday,<br>Penelope</h1>
+
+    <p>
+      To my Baby — today the world gets to celebrate
+      the wonderful person who makes my world brighter.
+    </p>
+
+    <div class="date-pill">
+      November 22, 2026 · Your special day
+    </div>
+
+    <br>
+
+    <button class="primary"
+      onclick="document.getElementById('letterSection').scrollIntoView({behavior:'smooth'})">
+      I made something for you ✨
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="content" id="letterSection">
+  <div class="section-kicker">A message from my heart</div>
+  <h2>Open when you're ready…</h2>
+
+  <p class="intro">
+    I tucked a little letter inside this envelope.
+    Tap it to open. Every word is for you, Baby. 💌
+  </p>
+
+  <div class="panel">
+    <div class="envelope-wrap">
+
+      <button class="envelope" id="envelope"
+        aria-label="Open your birthday letter"
+        aria-expanded="false"
+        onclick="toggleLetter()">
+
+        <span class="env-back"></span>
+        <span class="env-flap"></span>
+        <span class="env-front"></span>
+        <span class="seal">♥</span>
+
+      </button>
+
+      <p class="note" id="envelopeHint">
+        Tap the envelope to read your letter
+      </p>
+
+    </div>
+
+    <article class="letter" id="letter">
+
+      <h3>To my Baby, Penelope</h3>
+
+      <p>Happy Birthday, my Baby. ❤️</p>
+
+      <p>
+        I hope today reminds you how special you are
+        and how lucky I am to have you in my life.
+        You deserve all the happiness, love, and
+        beautiful things in this world.
+      </p>
+
+      <p>
+        Thank you for being yourself, for making me smile,
+        and for making even the simplest moments special.
+        I'm so grateful to have you, Baby.
+      </p>
+
+      <p>
+        I know we won't always have perfect days,
+        but I'll always do my best to love you,
+        support you, and make you happy.
+        I hope all your wishes come true and that
+        this year brings you so many reasons to smile.
+      </p>
+
+      <p>
+        I wish to celebrate many more birthdays with you
+        and make more beautiful memories together.
+      </p>
+
+      <p>
+        Happy Birthday, Baby! Never forget how special
+        you are to me. I love you so much. 💗
+      </p>
+
+      <div class="signature">Forever yours, Ron ❤️</div>
+
+    </article>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="section-kicker">Little pieces of us</div>
+  <h2>Our memories 📸</h2>
+
+  <p class="intro">
+    Replace these four spaces with your favorite photos together.
+    I can't wait for all the memories still waiting for us.
+  </p>
+
+  <div class="gallery">
+
+    <div class="photo">
+      <img src="cod1.jpg" alt="Our favorite photo">
+    </div>
+
+    <div class="photo">
+      <img src="cod2.jpg" alt="A moment I'll keep">
+    </div>
+
+    <div class="photo">
+      <img src="cod3.jpg" alt="Your beautiful smile">
+    </div>
+
+    <div class="photo">
+      <img src="cod4.jpg" alt="More memories to come">
+    </div>
+
+  </div>
+
+</section>
+
+<section class="content">
+
+  <div class="panel final-card">
+
+    <div class="heart-big">🎂</div>
+
+    <div class="section-kicker">One last thing, Baby</div>
+
+    <h2>You're my favorite person.</h2>
+
+    <p>
+      Of all the little things life could have brought my way,
+      I'm so happy it brought me you. Here's to your dreams,
+      your happiness, and many more birthdays filled with love.
+    </p>
+
+    <p class="script" style="font-size:2.4rem;color:#c85d8c">
+      Happy Birthday, Baby. 💕
+    </p>
+
+    <p>
+      With all my love,<br>
+      <strong>Ron</strong>
+    </p>
+
+    <button class="primary" onclick="sendLove()">
+      Send you a thousand hearts 💞
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  Made with love by Ron, just for Penelope. 💗
+</footer>
+
+<audio id="birthdayMusic" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-control" id="musicButton" onclick="toggleMusic()">
+  ♫ Play music
+</button>
+
+<script>
+
+function toggleLetter() {
+
+  const letter = document.getElementById('letter');
+  const envelope = document.getElementById('envelope');
+
+  const opening = !letter.classList.contains('show');
+
+  letter.classList.toggle('show', opening);
+  envelope.classList.toggle('open', opening);
+
+  envelope.setAttribute('aria-expanded', String(opening));
+
+  document.getElementById('envelopeHint').textContent =
+    opening
+      ? 'A letter, from Ron with love 💗'
+      : 'Tap the envelope to read your letter';
+}
+
+const audio = document.getElementById('birthdayMusic');
+const musicButton = document.getElementById('musicButton');
+
+async function toggleMusic() {
+
+  if (audio.paused) {
+
+    try {
+      await audio.play();
+      musicButton.textContent = 'Ⅱ Pause music';
+    }
+
+    catch(error) {
+      musicButton.textContent = 'Add music.mp3 first';
+    }
+
+  } else {
+
+    audio.pause();
+    musicButton.textContent = '♫ Play music';
+
+  }
+}
+
+audio.addEventListener('pause', () => {
+  musicButton.textContent = '♫ Play music';
+});
+
+audio.addEventListener('play', () => {
+  musicButton.textContent = 'Ⅱ Pause music';
+});
+
+function makeHeart() {
+
+  const heart = document.createElement('span');
+
+  heart.className = 'float-heart';
+
+  heart.textContent = ['♥','♡','💗','💕','✿'][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + '%';
+
+  heart.style.fontSize =
+    (14 + Math.random() * 20) + 'px';
+
+  heart.style.animationDuration =
+    (7 + Math.random() * 6) + 's';
+
+  document.getElementById('heartsBg').appendChild(heart);
+
+  setTimeout(() => heart.remove(), 14000);
+}
+
+setInterval(makeHeart, 650);
+
+function sendLove() {
+
+  for (let i = 0; i < 35; i++) {
+    setTimeout(makeHeart, i * 75);
+  }
+
+}
+
+</script>
+
+</body>
+</html>
