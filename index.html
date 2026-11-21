@@ -658,8 +658,6 @@ button:focus-visible {
 
           <div class="cover-decoration">✿ ❀ ✿</div>
 
-          </div>
-
           <h3>Our Little<br>Love Story</h3>
 
           <p>
@@ -985,7 +983,7 @@ button:focus-visible {
 
 <!-- Hidden background music -->
 <audio id="birthdayMusic" loop preload="auto">
-  <source src="lover.mp3" type="audio/mpeg">
+  <source src="Taylor Swift - Lover (Official Music Video)(MP3_160K).mp3" type="audio/mpeg">
 </audio>
 
 <button class="music-control" id="musicButton" onclick="toggleMusic()">
@@ -1063,7 +1061,6 @@ document.addEventListener('keydown', event => {
 
 updateBook();
 
-
 // Background music
 const audio = document.getElementById('birthdayMusic');
 const musicButton = document.getElementById('musicButton');
@@ -1104,7 +1101,6 @@ audio.addEventListener('pause', () => {
   musicButton.textContent = '♫ Play Lover';
 });
 
-
 // Floating hearts
 function makeHeart() {
 
@@ -1129,7 +1125,6 @@ function makeHeart() {
   setTimeout(() => heart.remove(), 12000);
 
 }
-
 
 // Send a thousand hearts
 function sendHearts() {
