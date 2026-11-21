@@ -64,9 +64,11 @@ button {
     transform: translateY(0);
     opacity: 0;
   }
+
   12% {
     opacity: .65;
   }
+
   100% {
     transform: translateY(-115vh) rotate(35deg);
     opacity: 0;
@@ -78,6 +80,7 @@ main, header, footer {
   z-index: 1;
 }
 
+/* Floral background */
 body::before {
   content: "✿  ❀  ✾  ❀  ✿";
   position: fixed;
@@ -99,11 +102,13 @@ body::before {
   from {
     transform: translate3d(-1.5%, -1%, 0) rotate(-3deg);
   }
+
   to {
     transform: translate3d(1.5%, 1%, 0) rotate(3deg);
   }
 }
 
+/* Hero section */
 .hero {
   min-height: 100vh;
   display: grid;
@@ -122,6 +127,7 @@ body::before {
     opacity: 0;
     transform: translateY(28px) scale(.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -218,6 +224,7 @@ h1 {
   }
 }
 
+/* Content sections */
 section.content {
   padding: 75px 20px;
   max-width: 1000px;
@@ -258,6 +265,7 @@ h2 {
   backdrop-filter: blur(8px);
 }
 
+/* Envelope */
 .envelope-wrap {
   display: grid;
   place-items: center;
@@ -285,6 +293,7 @@ h2 {
   0%,100% {
     transform: translateY(0) rotate(0);
   }
+
   50% {
     transform: translateY(-7px) rotate(1deg);
   }
@@ -343,6 +352,7 @@ h2 {
   animation: none;
 }
 
+/* Birthday letter */
 .letter {
   display: none;
   text-align: left;
@@ -360,6 +370,7 @@ h2 {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -382,6 +393,7 @@ h2 {
   margin-top: 20px;
 }
 
+/* Photo gallery */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -431,6 +443,7 @@ h2 {
   color: #9a6d80;
 }
 
+/* Final birthday message */
 .final-card {
   max-width: 650px;
 }
@@ -439,6 +452,7 @@ h2 {
   line-height: 1.9;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 35px 20px 50px;
@@ -446,6 +460,7 @@ footer {
   font-size: .85rem;
 }
 
+/* Background music button */
 .music-control {
   position: fixed;
   right: 16px;
@@ -458,24 +473,12 @@ footer {
   padding: 11px 15px;
   box-shadow: 0 8px 24px #9d547326;
   cursor: pointer;
+  transition: .3s;
 }
 
-/* YouTube music player */
-.youtube-music {
-  width: min(320px, 90vw);
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid #f0b9d0;
-  box-shadow: 0 12px 30px #9d547326;
-  background: #fff;
-}
-
-.youtube-music iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
+.music-control:hover {
+  transform: translateY(-3px);
+  background: #fff0f6;
 }
 
 /* Falling flower petals */
@@ -495,16 +498,18 @@ footer {
     transform: translate3d(0,-5vh,0) rotate(0deg);
     opacity: 0;
   }
+
   12% {
     opacity: .75;
   }
+
   100% {
     transform: translate3d(var(--sway),110vh,0) rotate(540deg);
     opacity: 0;
   }
 }
 
-/* Section reveal */
+/* Scroll reveal */
 .content.reveal-ready {
   opacity: 0;
   transform: translateY(24px);
@@ -518,6 +523,7 @@ footer {
   transform: translateY(0);
 }
 
+/* Mobile */
 @media(max-width:520px) {
   .gallery {
     gap: 10px;
@@ -534,6 +540,7 @@ footer {
   }
 }
 
+/* Reduced motion accessibility */
 @media(prefers-reduced-motion:reduce) {
   *,
   *::before,
@@ -559,8 +566,12 @@ footer {
 
 <header class="hero">
   <div class="hero-card">
+
     <div class="heart-big">💗</div>
-    <div class="eyebrow">A little birthday surprise from Ron</div>
+
+    <div class="eyebrow">
+      A little birthday surprise from Ron
+    </div>
 
     <h1>Happy Birthday,<br>Penelope</h1>
 
@@ -579,13 +590,19 @@ footer {
       onclick="document.getElementById('letterSection').scrollIntoView({behavior:'smooth'})">
       I made something for you ✨
     </button>
+
   </div>
 </header>
 
 <main>
 
+<!-- Birthday letter section -->
 <section class="content" id="letterSection">
-  <div class="section-kicker">A message from my heart</div>
+
+  <div class="section-kicker">
+    A message from my heart
+  </div>
+
   <h2>Open when you're ready…</h2>
 
   <p class="intro">
@@ -594,9 +611,11 @@ footer {
   </p>
 
   <div class="panel">
+
     <div class="envelope-wrap">
 
-      <button class="envelope" id="envelope"
+      <button class="envelope"
+        id="envelope"
         aria-label="Open your birthday letter"
         aria-expanded="false"
         onclick="toggleLetter()">
@@ -651,15 +670,23 @@ footer {
         you are to me. I love you so much. 💗
       </p>
 
-      <div class="signature">Forever yours, Ron ❤️</div>
+      <div class="signature">
+        Forever yours, Ron ❤️
+      </div>
 
     </article>
+
   </div>
+
 </section>
 
+<!-- Memories gallery -->
 <section class="content">
 
-  <div class="section-kicker">Little pieces of us</div>
+  <div class="section-kicker">
+    Little pieces of us
+  </div>
+
   <h2>Our memories 📸</h2>
 
   <p class="intro">
@@ -688,13 +715,16 @@ footer {
 
 </section>
 
+<!-- Final birthday message -->
 <section class="content">
 
   <div class="panel final-card">
 
     <div class="heart-big">🎂</div>
 
-    <div class="section-kicker">One last thing, Baby</div>
+    <div class="section-kicker">
+      One last thing, Baby
+    </div>
 
     <h2>You're my favorite person.</h2>
 
@@ -727,19 +757,15 @@ footer {
   Made with love by Ron, just for Penelope. 💗
 </footer>
 
-<!-- Taylor Swift - Lover YouTube player -->
-<div class="youtube-music">
-  <iframe
-    id="birthdayYoutube"
-    src="https://www.youtube.com/embed/-BjZmE2gtdo?enablejsapi=1&controls=1&playsinline=1"
-    title="Taylor Swift - Lover"
-    allow="autoplay; encrypted-media"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
+<!-- Hidden background music -->
+<audio id="birthdayMusic" loop preload="auto">
+  <source src="lover.mp3" type="audio/mpeg">
+</audio>
 
-<button class="music-control" id="musicButton" onclick="toggleMusic()">
+<!-- Music control -->
+<button class="music-control"
+  id="musicButton"
+  onclick="toggleMusic()">
   ♫ Play Lover
 </button>
 
@@ -765,31 +791,56 @@ function toggleLetter() {
 }
 
 
-// Taylor Swift - Lover YouTube music
-const youtubeFrame = document.getElementById('birthdayYoutube');
+// Background music controls
+const audio = document.getElementById('birthdayMusic');
 const musicButton = document.getElementById('musicButton');
 
-let musicPlaying = false;
+async function toggleMusic() {
 
-function toggleMusic() {
+  if (audio.paused) {
 
-  const command = musicPlaying ? 'pauseVideo' : 'playVideo';
+    try {
 
-  youtubeFrame.contentWindow.postMessage(
-    JSON.stringify({
-      event: 'command',
-      func: command,
-      args: []
-    }),
-    'https://www.youtube.com'
-  );
+      await audio.play();
 
-  musicPlaying = !musicPlaying;
+      musicButton.textContent = 'Ⅱ Pause Lover';
 
-  musicButton.textContent = musicPlaying
-    ? 'Ⅱ Pause Lover'
-    : '♫ Play Lover';
+    } catch (error) {
+
+      musicButton.textContent = '♫ Music unavailable';
+
+      console.error('Music could not play:', error);
+
+    }
+
+  } else {
+
+    audio.pause();
+
+    musicButton.textContent = '♫ Play Lover';
+
+  }
 }
+
+
+// Update music button when audio starts or stops
+audio.addEventListener('play', () => {
+
+  musicButton.textContent = 'Ⅱ Pause Lover';
+
+});
+
+audio.addEventListener('pause', () => {
+
+  musicButton.textContent = '♫ Play Lover';
+
+});
+
+audio.addEventListener('ended', () => {
+
+  musicButton.textContent = '♫ Play Lover';
+
+});
 
 
 // Floating hearts
@@ -814,6 +865,7 @@ function makeHeart() {
   document.getElementById('heartsBg').appendChild(heart);
 
   setTimeout(() => heart.remove(), 14000);
+
 }
 
 setInterval(makeHeart, 850);
@@ -847,6 +899,7 @@ function makePetal() {
   document.body.appendChild(petal);
 
   setTimeout(() => petal.remove(), duration * 1000);
+
 }
 
 setInterval(makePetal, 900);
@@ -870,6 +923,7 @@ if ('IntersectionObserver' in window) {
         entry.target.classList.add('revealed');
 
         revealObserver.unobserve(entry.target);
+
       }
 
     });
@@ -893,7 +947,9 @@ if ('IntersectionObserver' in window) {
 function sendLove() {
 
   for (let i = 0; i < 35; i++) {
+
     setTimeout(makeHeart, i * 75);
+
   }
 
 }
