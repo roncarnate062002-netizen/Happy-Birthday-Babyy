@@ -4,16 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffe3ef">
-<title>For Penelope, With Love — Ron 💗</title>
+<meta name="theme-color" content="#f8d9e6">
+<title>Our Little Love Story — Penelope 💗</title>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --pink: #f7a9c8;
-  --rose: #d85c91;
-  --ink: #62364a;
+  --pink: #e8a0bd;
+  --rose: #c85d8c;
+  --deep: #743c55;
+  --paper: #fffaf4;
+  --paper-dark: #f5e9df;
+  --ink: #704b59;
 }
 
 * {
@@ -26,15 +29,12 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(ellipse at 12% 18%, #fffafd 0 5%, transparent 30%),
-    radial-gradient(ellipse at 88% 32%, #ffd8e8 0 4%, transparent 28%),
-    radial-gradient(ellipse at 18% 78%, #ffe2ed 0 5%, transparent 30%),
-    radial-gradient(ellipse at 82% 88%, #fff8fb 0 5%, transparent 28%),
-    linear-gradient(145deg, #fff5fa 0%, #ffe1ed 48%, #fff7fb 100%);
-  background-attachment: fixed;
+  min-height: 100vh;
   color: var(--ink);
   font-family: "DM Sans", sans-serif;
+  background:
+    radial-gradient(ellipse at top, #fff8fc, transparent 55%),
+    linear-gradient(145deg, #fbe7f0, #f3cddd, #fcecf3);
   overflow-x: hidden;
 }
 
@@ -42,7 +42,14 @@ button {
   font: inherit;
 }
 
-.hearts-bg {
+button:focus-visible {
+  outline: 3px solid #c85d8c;
+  outline-offset: 4px;
+}
+
+/* Background decorations */
+
+.background-flowers {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -50,430 +57,453 @@ button {
   z-index: 0;
 }
 
-.float-heart {
+.flower {
   position: absolute;
-  bottom: -40px;
-  opacity: 0;
-  animation: rise linear forwards;
-  color: #e98ab1;
-  text-shadow: 0 2px 12px #e98ab155;
+  color: #d77da4;
+  opacity: .18;
+  animation: flower-float 12s ease-in-out infinite alternate;
 }
 
-@keyframes rise {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
+.flower:nth-child(1) {
+  top: 8%;
+  left: 5%;
+  font-size: 65px;
+}
+
+.flower:nth-child(2) {
+  top: 25%;
+  right: 6%;
+  font-size: 48px;
+  animation-delay: -3s;
+}
+
+.flower:nth-child(3) {
+  bottom: 12%;
+  left: 9%;
+  font-size: 80px;
+  animation-delay: -5s;
+}
+
+.flower:nth-child(4) {
+  bottom: 18%;
+  right: 8%;
+  font-size: 55px;
+  animation-delay: -2s;
+}
+
+@keyframes flower-float {
+  from {
+    transform: translateY(-10px) rotate(-10deg);
   }
 
-  12% {
-    opacity: .65;
-  }
-
-  100% {
-    transform: translateY(-115vh) rotate(35deg);
-    opacity: 0;
+  to {
+    transform: translateY(18px) rotate(12deg);
   }
 }
 
-main, header, footer {
+/* Intro */
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
 
-/* Floral background */
-body::before {
-  content: "✿  ❀  ✾  ❀  ✿";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: rgba(211, 91, 143, .12);
-  font-size: clamp(2.2rem, 6vw, 5.5rem);
-  letter-spacing: clamp(1rem, 7vw, 7rem);
-  white-space: nowrap;
-  text-shadow: 0 0 28px rgba(255,255,255,.9);
-  animation: floral-drift 18s ease-in-out infinite alternate;
-}
-
-@keyframes floral-drift {
-  from {
-    transform: translate3d(-1.5%, -1%, 0) rotate(-3deg);
-  }
-
-  to {
-    transform: translate3d(1.5%, 1%, 0) rotate(3deg);
-  }
-}
-
-/* Hero section */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 48px 20px;
-}
-
-.hero-card {
-  max-width: 760px;
-  animation: hero-arrive 1.1s cubic-bezier(.2,.8,.2,1) both;
-}
-
-@keyframes hero-arrive {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.eyebrow {
+.intro-small {
   text-transform: uppercase;
-  letter-spacing: .22em;
-  font-size: .72rem;
-  font-weight: 600;
-  color: #b85b82;
-  animation: soft-glow 3.5s ease-in-out infinite;
+  letter-spacing: .25em;
+  font-size: .7rem;
+  color: #a65a7c;
+  margin-bottom: 15px;
 }
 
-@keyframes soft-glow {
-  50% {
-    text-shadow: 0 0 14px #e98ab188;
-  }
-}
-
-h1, h2, .script {
+.intro h1 {
   font-family: "Great Vibes", cursive;
   font-weight: 400;
-}
-
-h1 {
-  font-size: clamp(4.4rem,14vw,8.5rem);
+  font-size: clamp(4rem, 13vw, 7.5rem);
   line-height: .95;
-  color: #cf5b8c;
-  margin: 18px 0;
-  text-shadow: 0 8px 28px #e58bb333;
+  color: #c85d8c;
+  margin: 0;
+  text-shadow: 0 8px 25px #d982a933;
 }
 
-.hero p {
-  max-width: 520px;
-  margin: 16px auto;
-  color: #87536a;
-  line-height: 1.8;
+.intro-subtitle {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  margin: 22px 0;
+  color: #87556d;
 }
 
-.date-pill {
-  display: inline-block;
-  margin: 14px 0;
-  padding: 10px 18px;
-  border: 1px solid #efb3cc;
+.intro-heart {
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.open-book-btn {
+  margin-top: 25px;
+  padding: 14px 25px;
+  border: 1px solid #d88bad;
   border-radius: 999px;
-  background: #ffffffa8;
-  color: #a54f77;
-}
-
-.primary {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg,#e77ca8,#c85a8d);
   color: white;
-  border: 0;
-  border-radius: 999px;
-  padding: 14px 23px;
+  background: linear-gradient(135deg, #e7a1bd, #c85d8c);
+  box-shadow: 0 12px 30px #c85d8c35;
   cursor: pointer;
-  box-shadow: 0 10px 25px #c85a8d38;
   transition: .3s;
 }
 
-.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px #c85a8d50;
+.open-book-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px #c85d8c45;
 }
 
-.primary::after {
-  content: "";
-  position: absolute;
-  top: -80%;
-  left: -35%;
-  width: 24%;
-  height: 260%;
-  background: #ffffff55;
-  transform: rotate(25deg);
-  transition: left .65s ease;
+.intro-note {
+  font-size: .8rem;
+  color: #a7778d;
+  margin-top: 15px;
 }
 
-.primary:hover::after {
-  left: 120%;
-}
+/* Book area */
 
-.heart-big {
-  font-size: 2.5rem;
-  animation: pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  50% {
-    transform: scale(1.14);
-  }
-}
-
-/* Content sections */
-section.content {
-  padding: 75px 20px;
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-}
-
-.section-kicker {
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  color: #b66a87;
-}
-
-h2 {
-  font-size: clamp(2.8rem,8vw,4.6rem);
-  color: #c85d8c;
-  margin: 8px 0 18px;
-}
-
-.intro {
-  max-width: 620px;
-  margin: 0 auto 28px;
-  line-height: 1.85;
-  color: #87566b;
-}
-
-.panel {
-  max-width: 680px;
-  margin: 28px auto;
-  padding: clamp(22px,5vw,42px);
-  border: 1px solid rgba(231, 151, 184, .62);
-  border-radius: 28px;
-  background: #ffffffb8;
-  box-shadow:
-    0 20px 60px rgba(185, 91, 129, .13),
-    inset 0 1px 0 #fff;
-  backdrop-filter: blur(8px);
-}
-
-/* Envelope */
-.envelope-wrap {
-  display: grid;
-  place-items: center;
-  gap: 18px;
-}
-
-.envelope {
-  width: min(290px,78vw);
-  height: 190px;
+.book-section {
   position: relative;
-  cursor: pointer;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  filter: drop-shadow(0 14px 18px #b45c7d2b);
-  animation: envelope-float 3.8s ease-in-out infinite;
-  transition: transform .25s;
+  z-index: 1;
+  padding: 35px 15px 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.envelope:hover {
-  transform: translateY(-5px) rotate(-1deg);
+.book-heading {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-@keyframes envelope-float {
-  0%,100% {
-    transform: translateY(0) rotate(0);
-  }
-
-  50% {
-    transform: translateY(-7px) rotate(1deg);
-  }
+.book-heading p {
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #a65a7c;
 }
 
-.env-back {
+.book-heading h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  font-weight: 400;
+  color: #c85d8c;
+  margin: 0;
+}
+
+/* Book frame */
+
+.book {
+  width: min(900px, 96vw);
+  height: 580px;
+  position: relative;
+  perspective: 2200px;
+  filter: drop-shadow(0 25px 35px #8e4b6828);
+}
+
+.book-inner {
   position: absolute;
-  inset: 15px 0 0;
-  background: #e98eb3;
-  border-radius: 12px;
+  inset: 0;
+  display: flex;
+  border-radius: 8px 18px 18px 8px;
+  background: #e8c9d5;
+  padding: 12px;
+  box-shadow:
+    inset 5px 0 8px #8c4d6920,
+    0 4px 0 #d8b5c4;
 }
 
-.env-front {
+/* Pages */
+
+.page {
   position: absolute;
-  inset: 55px 0 0;
-  background: #f4b5ce;
-  clip-path: polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
-  border-radius: 0 0 12px 12px;
-}
-
-.env-flap {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  width: 100%;
-  height: 115px;
-  background: #f8c8da;
-  clip-path: polygon(0 0,100% 0,50% 100%);
-  transform-origin: top;
-  transition: transform .6s;
-  z-index: 2;
-}
-
-.seal {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  top: 91px;
-  transform: translateX(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #c95788;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.envelope.open .env-flap {
-  transform: rotateX(180deg);
-  z-index: 0;
-}
-
-.envelope.open {
-  animation: none;
-}
-
-/* Birthday letter */
-.letter {
+  top: 12px;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  border-radius: 5px 12px 12px 5px;
+  background:
+    linear-gradient(90deg, #e9d9cc 0%, #fffaf4 4%, #fffaf4 96%, #eadccf 100%);
+  padding: clamp(24px, 5vw, 55px);
+  overflow: hidden;
   display: none;
-  text-align: left;
-  line-height: 1.95;
-  color: #71465a;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transform-origin: left center;
 }
 
-.letter.show {
-  display: block;
-  animation: fade .65s ease;
+.page.active {
+  display: flex;
+  animation: page-appear .45s ease both;
 }
 
-@keyframes fade {
+@keyframes page-appear {
   from {
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: .3;
+    transform: rotateY(-8deg);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: rotateY(0);
   }
 }
 
-.letter h3 {
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid #e8cbd6;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.page-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  width: 100%;
+  margin: auto;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: .8rem;
+  color: #b78b9d;
+}
+
+.chapter-label {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .65rem;
+  color: #b36c8b;
+  margin-bottom: 18px;
+}
+
+.page h3 {
   font-family: "Great Vibes", cursive;
-  font-size: 2.8rem;
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  line-height: 1;
   color: #c85d8c;
   font-weight: 400;
-  text-align: center;
+  margin: 10px 0 22px;
 }
 
-.signature {
+.page p {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(.92rem, 2vw, 1.08rem);
+  line-height: 1.9;
+  color: #765365;
+  margin: 12px auto;
+}
+
+.page .small-script {
   font-family: "Great Vibes", cursive;
-  font-size: 2rem;
+  font-size: 2.1rem;
   color: #c85d8c;
+}
+
+.page-divider {
+  width: 100px;
+  height: 1px;
+  background: #dfb2c5;
+  margin: 22px auto;
+  position: relative;
+}
+
+.page-divider::after {
+  content: "♥";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--paper);
+  color: #d17a9e;
+  padding: 0 12px;
+  font-size: .9rem;
+}
+
+/* Cover */
+
+.cover-page {
+  background:
+    radial-gradient(circle at center, #f8dce8 0%, #efc3d6 65%, #e2a9c2 100%);
+  color: white;
+}
+
+.cover-page::before {
+  border: 2px solid #ffffff80;
+  inset: 25px;
+}
+
+.cover-page h3 {
+  color: #fffafc;
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  text-shadow: 0 5px 20px #9b456b35;
+}
+
+.cover-page p {
+  color: #fff7fb;
+}
+
+.cover-decoration {
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+
+/* Dedication */
+
+.dedication {
+  font-style: italic;
+}
+
+/* Letter */
+
+.letter-text {
+  text-align: left;
+  max-width: 590px;
+}
+
+.letter-text p {
+  font-size: clamp(.85rem, 1.8vw, 1rem);
+  margin: 8px 0;
+}
+
+.letter-signature {
   text-align: right;
-  margin-top: 20px;
+  font-family: "Great Vibes", cursive;
+  color: #c85d8c;
+  font-size: 2rem;
+  margin-top: 18px;
 }
 
-/* Photo gallery */
-.gallery {
+/* Memory pages */
+
+.memory-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 14px;
-  max-width: 650px;
-  margin: 30px auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-.photo {
-  min-height: 190px;
-  border: 8px solid white;
-  border-radius: 13px;
-  background: linear-gradient(145deg,#f9c8dc,#fceaf1);
-  box-shadow: 0 10px 25px #9d54731c;
-  overflow: hidden;
-  transform: rotate(-1.5deg);
-  display: grid;
-  place-items: center;
-  color: #a75c7b;
-  transition: transform .45s ease, box-shadow .45s ease;
+.memory-photo {
+  height: 160px;
+  padding: 7px;
+  background: white;
+  box-shadow: 0 5px 15px #8f536b18;
+  transform: rotate(-2deg);
 }
 
-.photo:nth-child(even) {
-  transform: rotate(1.5deg);
+.memory-photo:nth-child(even) {
+  transform: rotate(2deg);
 }
 
-.photo:hover {
-  transform: translateY(-8px) rotate(0deg) scale(1.025);
-  box-shadow: 0 18px 34px #9d547333;
-}
-
-.photo img {
+.memory-photo img {
   width: 100%;
   height: 100%;
-  min-height: 190px;
   object-fit: cover;
   display: block;
 }
 
-.photo span {
-  padding: 18px;
+.memory-caption {
+  font-family: "Great Vibes", cursive !important;
+  font-size: 1.6rem !important;
+  color: #c85d8c !important;
+}
+
+/* Final page */
+
+.final-page {
+  background:
+    radial-gradient(circle at center, #fffaf4 0%, #fbe9f0 100%);
+}
+
+.final-page h3 {
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+
+/* Book navigation */
+
+.book-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.nav-btn {
+  border: 1px solid #d9a2ba;
+  background: #fffafc;
+  color: #a95279;
+  padding: 11px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #f8dce8;
+  transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.page-counter {
+  font-family: "Playfair Display", serif;
+  color: #a66a83;
   font-size: .9rem;
-}
-
-.note {
-  font-size: .82rem;
-  color: #9a6d80;
-}
-
-/* Final birthday message */
-.final-card {
-  max-width: 650px;
-}
-
-.final-card p {
-  line-height: 1.9;
-}
-
-/* Footer */
-footer {
+  min-width: 75px;
   text-align: center;
-  padding: 35px 20px 50px;
-  color: #a76b83;
-  font-size: .85rem;
 }
 
-/* Background music button */
+.book-hint {
+  text-align: center;
+  color: #a7778d;
+  font-size: .8rem;
+  margin-top: 18px;
+}
+
+/* Music */
+
 .music-control {
   position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 5;
-  border: 1px solid #f0b9d0;
+  z-index: 10;
+  border: 1px solid #efb6ce;
   border-radius: 999px;
   background: #fffafc;
   color: #a84f78;
-  padding: 11px 15px;
+  padding: 12px 17px;
   box-shadow: 0 8px 24px #9d547326;
   cursor: pointer;
-  transition: .3s;
+  transition: .25s;
 }
 
 .music-control:hover {
@@ -481,80 +511,90 @@ footer {
   background: #fff0f6;
 }
 
-/* Falling flower petals */
-.falling-petal {
+/* Hearts */
+
+.floating-heart {
   position: fixed;
-  top: -35px;
-  z-index: 0;
+  bottom: -30px;
+  z-index: 5;
   pointer-events: none;
-  color: #df77a2;
-  opacity: .75;
-  text-shadow: 0 2px 8px #d85c912c;
-  animation: petal-fall linear forwards;
+  animation: heart-rise linear forwards;
 }
 
-@keyframes petal-fall {
+@keyframes heart-rise {
   0% {
-    transform: translate3d(0,-5vh,0) rotate(0deg);
+    transform: translateY(0) rotate(0);
     opacity: 0;
   }
 
-  12% {
-    opacity: .75;
+  15% {
+    opacity: .8;
   }
 
   100% {
-    transform: translate3d(var(--sway),110vh,0) rotate(540deg);
+    transform: translateY(-110vh) rotate(35deg);
     opacity: 0;
   }
 }
 
-/* Scroll reveal */
-.content.reveal-ready {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity .9s ease,
-    transform .9s cubic-bezier(.2,.8,.2,1);
-}
+/* Responsive */
 
-.content.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Mobile */
-@media(max-width:520px) {
-  .gallery {
-    gap: 10px;
+@media(max-width:650px) {
+  .book {
+    height: 650px;
   }
 
-  .photo,
-  .photo img {
-    min-height: 145px;
+  .page {
+    padding: 30px 25px;
   }
 
-  .music-control {
-    right: 10px;
-    bottom: 10px;
+  .memory-photo {
+    height: 125px;
+  }
+
+  .book-inner {
+    padding: 7px;
+  }
+
+  .page {
+    top: 7px;
+    bottom: 7px;
+    left: 7px;
+    right: 7px;
+  }
+
+  .book-controls {
+    gap: 12px;
+  }
+
+  .nav-btn {
+    padding: 10px 15px;
+    font-size: .85rem;
   }
 }
 
-/* Reduced motion accessibility */
+@media(max-width:380px) {
+  .book {
+    height: 700px;
+  }
+
+  .memory-photo {
+    height: 105px;
+  }
+
+  .page p {
+    line-height: 1.7;
+  }
+}
+
 @media(prefers-reduced-motion:reduce) {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
-  }
-
-  .content.reveal-ready {
-    opacity: 1;
-    transform: none;
-    transition: none;
+    scroll-behavior: auto !important;
   }
 }
 </style>
@@ -562,199 +602,387 @@ footer {
 
 <body>
 
-<div class="hearts-bg" id="heartsBg"></div>
+<div class="background-flowers">
+  <span class="flower">✿</span>
+  <span class="flower">❀</span>
+  <span class="flower">✾</span>
+  <span class="flower">❁</span>
+</div>
 
-<header class="hero">
-  <div class="hero-card">
+<!-- Opening screen -->
+<section class="intro">
 
-    <div class="heart-big">💗</div>
+  <div class="intro-heart">💗</div>
 
-    <div class="eyebrow">
-      A little birthday surprise from Ron
+  <div class="intro-small">
+    A birthday story written with love
+  </div>
+
+  <h1>For Penelope</h1>
+
+  <p class="intro-subtitle">
+    Our Little Love Story
+  </p>
+
+  <p>
+    A little book filled with love,<br>
+    memories, and wishes just for you.
+  </p>
+
+  <button class="open-book-btn" onclick="openBook()">
+    Open your birthday book 📖
+  </button>
+
+  <div class="intro-note">
+    Written especially for you, by Ron
+  </div>
+
+</section>
+
+<!-- Storybook -->
+<section class="book-section" id="storybook">
+
+  <div class="book-heading">
+    <p>Turn the pages of our story</p>
+    <h2>My favorite chapters</h2>
+  </div>
+
+  <div class="book">
+
+    <div class="book-inner">
+
+      <!-- Page 1: Cover -->
+      <article class="page cover-page active">
+
+        <div class="page-content">
+
+          <div class="cover-decoration">✿ ❀ ✿</div>
+
+          <div class="chapter-label">
+            A special birthday edition
+          </div>
+
+          <h3>Our Little<br>Love Story</h3>
+
+          <p>
+            A book about my favorite person
+          </p>
+
+          <div class="page-divider"></div>
+
+          <p class="small-script">
+            For Penelope, with love
+          </p>
+
+          <p>
+            Written by Ron · November 22, 2026
+          </p>
+
+        </div>
+
+        <div class="page-number">♡</div>
+
+      </article>
+
+      <!-- Page 2: Dedication -->
+      <article class="page">
+
+        <div class="page-content">
+
+          <div class="chapter-label">
+            The dedication
+          </div>
+
+          <h3>To my Baby</h3>
+
+          <div class="page-divider"></div>
+
+          <p class="dedication">
+            This little book belongs to the girl
+            who makes my ordinary days feel
+            like the most beautiful stories.
+          </p>
+
+          <p class="dedication">
+            To the girl whose smile I could
+            look at a thousand times,
+            whose happiness means so much to me,
+            and whose heart I hope to cherish
+            for a very long time.
+          </p>
+
+          <p class="small-script">
+            This story is yours. 💗
+          </p>
+
+        </div>
+
+        <div class="page-number">1</div>
+
+      </article>
+
+      <!-- Page 3: Birthday chapter -->
+      <article class="page">
+
+        <div class="page-content">
+
+          <div class="chapter-label">
+            Chapter one
+          </div>
+
+          <h3>The day you were born</h3>
+
+          <div class="page-divider"></div>
+
+          <p>
+            Today is a very special day,
+            because the world welcomed someone
+            who would one day mean so much to me.
+          </p>
+
+          <p>
+            Happy Birthday, Penelope.
+            I hope your day is filled with
+            laughter, sweet surprises,
+            warm hugs, and everything
+            that makes your heart happy.
+          </p>
+
+          <p>
+            You deserve a beautiful life
+            and a thousand wonderful chapters
+            still waiting to be written.
+          </p>
+
+          <p class="small-script">
+            I'm so happy you were born.
+          </p>
+
+        </div>
+
+        <div class="page-number">2</div>
+
+      </article>
+
+      <!-- Page 4: Love letter -->
+      <article class="page">
+
+        <div class="page-content">
+
+          <div class="chapter-label">
+            Chapter two
+          </div>
+
+          <h3>A letter from my heart</h3>
+
+          <div class="letter-text">
+
+            <p>Happy Birthday, my Baby. ❤️</p>
+
+            <p>
+              I hope today reminds you how special
+              you are and how lucky I am to have
+              you in my life.
+            </p>
+
+            <p>
+              Thank you for being yourself,
+              for making me smile, and for making
+              even the simplest moments special.
+              I'm so grateful to have you.
+            </p>
+
+            <p>
+              I know we won't always have perfect
+              days, but I'll always do my best
+              to love you, support you,
+              and make you happy.
+            </p>
+
+            <p>
+              I wish to celebrate many more
+              birthdays with you and make
+              more beautiful memories together.
+            </p>
+
+            <div class="letter-signature">
+              Forever yours, Ron ❤️
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="page-number">3</div>
+
+      </article>
+
+      <!-- Page 5: Memory photos -->
+      <article class="page">
+
+        <div class="page-content">
+
+          <div class="chapter-label">
+            Chapter three
+          </div>
+
+          <h3>Little pieces of us</h3>
+
+          <p>
+            Some moments are too precious
+            to be forgotten.
+          </p>
+
+          <div class="memory-grid">
+
+            <div class="memory-photo">
+              <img src="cod1.jpg" alt="Our memory one">
+            </div>
+
+            <div class="memory-photo">
+              <img src="cod2.jpg" alt="Our memory two">
+            </div>
+
+            <div class="memory-photo">
+              <img src="cod3.jpg" alt="Our memory three">
+            </div>
+
+            <div class="memory-photo">
+              <img src="cod4.jpg" alt="Our memory four">
+            </div>
+
+          </div>
+
+          <p class="memory-caption">
+            More memories to come…
+          </p>
+
+        </div>
+
+        <div class="page-number">4</div>
+
+      </article>
+
+      <!-- Page 6: Future -->
+      <article class="page">
+
+        <div class="page-content">
+
+          <div class="chapter-label">
+            Chapter four
+          </div>
+
+          <h3>Pages we haven't written</h3>
+
+          <div class="page-divider"></div>
+
+          <p>
+            There are still so many places
+            we haven't seen, so many pictures
+            we haven't taken, and so many
+            little moments waiting for us.
+          </p>
+
+          <p>
+            I look forward to the quiet days,
+            the silly laughs, the adventures,
+            and the memories we'll make
+            along the way.
+          </p>
+
+          <p>
+            If life were a book,
+            one of my favorite parts
+            would always be the chapters
+            where I get to be with you.
+          </p>
+
+          <p class="small-script">
+            Our story is still being written.
+          </p>
+
+        </div>
+
+        <div class="page-number">5</div>
+
+      </article>
+
+      <!-- Page 7: Final birthday wish -->
+      <article class="page final-page">
+
+        <div class="page-content">
+
+          <div class="chapter-label">
+            The final chapter
+          </div>
+
+          <div class="cover-decoration">🎂 💗</div>
+
+          <h3>Happy Birthday,<br>my favorite person</h3>
+
+          <div class="page-divider"></div>
+
+          <p>
+            May this new chapter of your life
+            be filled with happiness,
+            beautiful dreams, and endless love.
+          </p>
+
+          <p>
+            Keep being the wonderful girl
+            you are. Keep smiling,
+            keep dreaming, and never forget
+            how loved you are.
+          </p>
+
+          <p class="small-script">
+            I love you so much, Baby.
+          </p>
+
+          <p>
+            With all my love,<br>
+            <strong>Ron</strong>
+          </p>
+
+          <button class="open-book-btn" onclick="sendHearts()">
+            A thousand hearts for you 💞
+          </button>
+
+        </div>
+
+        <div class="page-number">♡</div>
+
+      </article>
+
     </div>
 
-    <h1>Happy Birthday,<br>Penelope</h1>
+  </div>
 
-    <p>
-      To my Baby — today the world gets to celebrate
-      the wonderful person who makes my world brighter.
-    </p>
+  <!-- Book buttons -->
+  <div class="book-controls">
 
-    <div class="date-pill">
-      November 22, 2026 · Your special day
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)" disabled>
+      ← Previous
+    </button>
+
+    <div class="page-counter" id="pageCounter">
+      Cover
     </div>
 
-    <br>
-
-    <button class="primary"
-      onclick="document.getElementById('letterSection').scrollIntoView({behavior:'smooth'})">
-      I made something for you ✨
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">
+      Next →
     </button>
 
   </div>
-</header>
 
-<main>
-
-<!-- Birthday letter section -->
-<section class="content" id="letterSection">
-
-  <div class="section-kicker">
-    A message from my heart
-  </div>
-
-  <h2>Open when you're ready…</h2>
-
-  <p class="intro">
-    I tucked a little letter inside this envelope.
-    Tap it to open. Every word is for you, Baby. 💌
+  <p class="book-hint">
+    Turn the pages to read your birthday story 📖
   </p>
 
-  <div class="panel">
-
-    <div class="envelope-wrap">
-
-      <button class="envelope"
-        id="envelope"
-        aria-label="Open your birthday letter"
-        aria-expanded="false"
-        onclick="toggleLetter()">
-
-        <span class="env-back"></span>
-        <span class="env-flap"></span>
-        <span class="env-front"></span>
-        <span class="seal">♥</span>
-
-      </button>
-
-      <p class="note" id="envelopeHint">
-        Tap the envelope to read your letter
-      </p>
-
-    </div>
-
-    <article class="letter" id="letter">
-
-      <h3>To my Baby, Penelope</h3>
-
-      <p>Happy Birthday, my Baby. ❤️</p>
-
-      <p>
-        I hope today reminds you how special you are
-        and how lucky I am to have you in my life.
-        You deserve all the happiness, love, and
-        beautiful things in this world.
-      </p>
-
-      <p>
-        Thank you for being yourself, for making me smile,
-        and for making even the simplest moments special.
-        I'm so grateful to have you, Baby.
-      </p>
-
-      <p>
-        I know we won't always have perfect days,
-        but I'll always do my best to love you,
-        support you, and make you happy.
-        I hope all your wishes come true and that
-        this year brings you so many reasons to smile.
-      </p>
-
-      <p>
-        I wish to celebrate many more birthdays with you
-        and make more beautiful memories together.
-      </p>
-
-      <p>
-        Happy Birthday, Baby! Never forget how special
-        you are to me. I love you so much. 💗
-      </p>
-
-      <div class="signature">
-        Forever yours, Ron ❤️
-      </div>
-
-    </article>
-
-  </div>
-
 </section>
 
-<!-- Memories gallery -->
-<section class="content">
-
-  <div class="section-kicker">
-    Little pieces of us
-  </div>
-
-  <h2>Our memories 📸</h2>
-
-  <p class="intro">
-    I can't wait for all the memories still waiting for us.
-  </p>
-
-  <div class="gallery">
-
-    <div class="photo">
-      <img src="cod1.jpg" alt="Our favorite photo">
-    </div>
-
-    <div class="photo">
-      <img src="cod2.jpg" alt="A moment I'll keep">
-    </div>
-
-    <div class="photo">
-      <img src="cod3.jpg" alt="Your beautiful smile">
-    </div>
-
-    <div class="photo">
-      <img src="cod4.jpg" alt="More memories to come">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- Final birthday message -->
-<section class="content">
-
-  <div class="panel final-card">
-
-    <div class="heart-big">🎂</div>
-
-    <div class="section-kicker">
-      One last thing, Baby
-    </div>
-
-    <h2>You're my favorite person.</h2>
-
-    <p>
-      Of all the little things life could have brought my way,
-      I'm so happy it brought me you. Here's to your dreams,
-      your happiness, and many more birthdays filled with love.
-    </p>
-
-    <p class="script" style="font-size:2.4rem;color:#c85d8c">
-      Happy Birthday, Baby. 💕
-    </p>
-
-    <p>
-      With all my love,<br>
-      <strong>Ron</strong>
-    </p>
-
-    <button class="primary" onclick="sendLove()">
-      Send you a thousand hearts 💞
-    </button>
-
-  </div>
-
-</section>
-
-</main>
-
-<footer>
-  Made with love by Ron, just for Penelope. 💗
+<footer style="position:relative;z-index:1;text-align:center;padding:30px 20px 50px;color:#a76b83;font-size:.85rem;">
+  A little book made with love by Ron, just for Penelope. 💗
 </footer>
 
 <!-- Hidden background music -->
@@ -762,36 +990,83 @@ footer {
   <source src="lover.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Music control -->
-<button class="music-control"
-  id="musicButton"
-  onclick="toggleMusic()">
+<button class="music-control" id="musicButton" onclick="toggleMusic()">
   ♫ Play Lover
 </button>
 
 <script>
 
-// Open and close the birthday letter
-function toggleLetter() {
+// Book page navigation
+const pages = document.querySelectorAll('.page');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageCounter = document.getElementById('pageCounter');
 
-  const letter = document.getElementById('letter');
-  const envelope = document.getElementById('envelope');
+let currentPage = 0;
 
-  const opening = !letter.classList.contains('show');
+function updateBook() {
 
-  letter.classList.toggle('show', opening);
-  envelope.classList.toggle('open', opening);
+  pages.forEach((page, index) => {
+    page.classList.toggle('active', index === currentPage);
+  });
 
-  envelope.setAttribute('aria-expanded', String(opening));
+  prevBtn.disabled = currentPage === 0;
+  nextBtn.disabled = currentPage === pages.length - 1;
 
-  document.getElementById('envelopeHint').textContent =
-    opening
-      ? 'A letter, from Ron with love 💗'
-      : 'Tap the envelope to read your letter';
+  if (currentPage === 0) {
+    pageCounter.textContent = 'Cover';
+  } else if (currentPage === pages.length - 1) {
+    pageCounter.textContent = 'The End';
+  } else {
+    pageCounter.textContent =
+      currentPage + ' / ' + (pages.length - 2);
+  }
+
 }
 
+function changePage(direction) {
 
-// Background music controls
+  const nextPage = currentPage + direction;
+
+  if (nextPage < 0 || nextPage >= pages.length) {
+    return;
+  }
+
+  currentPage = nextPage;
+
+  updateBook();
+
+}
+
+function openBook() {
+
+  document.getElementById('storybook').scrollIntoView({
+    behavior: 'smooth'
+  });
+
+  if (currentPage === 0) {
+    changePage(1);
+  }
+
+}
+
+// Keyboard page turning
+document.addEventListener('keydown', event => {
+
+  if (event.key === 'ArrowRight') {
+    changePage(1);
+  }
+
+  if (event.key === 'ArrowLeft') {
+    changePage(-1);
+  }
+
+});
+
+updateBook();
+
+
+// Background music
 const audio = document.getElementById('birthdayMusic');
 const musicButton = document.getElementById('musicButton');
 
@@ -820,26 +1095,15 @@ async function toggleMusic() {
     musicButton.textContent = '♫ Play Lover';
 
   }
+
 }
 
-
-// Update music button when audio starts or stops
 audio.addEventListener('play', () => {
-
   musicButton.textContent = 'Ⅱ Pause Lover';
-
 });
 
 audio.addEventListener('pause', () => {
-
   musicButton.textContent = '♫ Play Lover';
-
-});
-
-audio.addEventListener('ended', () => {
-
-  musicButton.textContent = '♫ Play Lover';
-
 });
 
 
@@ -848,108 +1112,32 @@ function makeHeart() {
 
   const heart = document.createElement('span');
 
-  heart.className = 'float-heart';
+  heart.className = 'floating-heart';
 
-  heart.textContent = ['♥','♡','💗','💕','✿'][
+  heart.textContent = ['♥', '♡', '💗', '💕', '✿'][
     Math.floor(Math.random() * 5)
   ];
 
-  heart.style.left = Math.random() * 100 + '%';
+  heart.style.left = Math.random() * 100 + 'vw';
 
   heart.style.fontSize =
-    (14 + Math.random() * 20) + 'px';
+    (14 + Math.random() * 22) + 'px';
 
   heart.style.animationDuration =
-    (7 + Math.random() * 6) + 's';
+    (6 + Math.random() * 5) + 's';
 
-  document.getElementById('heartsBg').appendChild(heart);
+  document.body.appendChild(heart);
 
-  setTimeout(() => heart.remove(), 14000);
-
-}
-
-setInterval(makeHeart, 850);
-
-
-// Falling cherry blossom petals
-function makePetal() {
-
-  const petal = document.createElement('span');
-
-  petal.className = 'falling-petal';
-
-  petal.textContent = ['✿', '❀', '✾', '❁'][
-    Math.floor(Math.random() * 4)
-  ];
-
-  petal.style.left = Math.random() * 100 + 'vw';
-
-  petal.style.fontSize =
-    (13 + Math.random() * 17) + 'px';
-
-  petal.style.setProperty(
-    '--sway',
-    (Math.random() * 180 - 90) + 'px'
-  );
-
-  const duration = 9 + Math.random() * 9;
-
-  petal.style.animationDuration = duration + 's';
-
-  document.body.appendChild(petal);
-
-  setTimeout(() => petal.remove(), duration * 1000);
-
-}
-
-setInterval(makePetal, 900);
-
-
-// Reveal sections as they enter the screen
-const revealSections = document.querySelectorAll('section.content');
-
-if ('IntersectionObserver' in window) {
-
-  revealSections.forEach(section => {
-    section.classList.add('reveal-ready');
-  });
-
-  const revealObserver = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add('revealed');
-
-        revealObserver.unobserve(entry.target);
-
-      }
-
-    });
-
-  }, { threshold: 0.12 });
-
-  revealSections.forEach(section => {
-    revealObserver.observe(section);
-  });
-
-} else {
-
-  revealSections.forEach(section => {
-    section.classList.add('revealed');
-  });
+  setTimeout(() => heart.remove(), 12000);
 
 }
 
 
 // Send a thousand hearts
-function sendLove() {
+function sendHearts() {
 
-  for (let i = 0; i < 35; i++) {
-
-    setTimeout(makeHeart, i * 75);
-
+  for (let i = 0; i < 45; i++) {
+    setTimeout(makeHeart, i * 80);
   }
 
 }
